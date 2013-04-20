@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "DINPro";
+    src: local("DINPro"), url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/DINPro-Regular.otf) format("opentype");
+}
+
 .elgg-body.qis-company-list {
  	height: 40px;
         width: 800px;
@@ -627,4 +632,9 @@ h3 {
 .elgg-form-login > .elgg-input-text, fieldset, .elgg-input-password{
         width: 215px;
         font-size:10px;        
+}
+
+html *
+{
+  font-family: DINPro !important;
 }
