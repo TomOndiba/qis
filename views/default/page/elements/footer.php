@@ -16,7 +16,7 @@ echo '<div class="mts clearfloat float-alt">';
 echo elgg_view('output/url', array(
 	'href' => 'http://elgg.org',
 	'text' => "<img src=\"$powered_url\" alt=\"Powered by Elgg\" width=\"106\" height=\"15\" />",
-	'class' => 'elgg_powered',
+	'class' => '',
 	'is_trusted' => true,
 ));
 echo '</div>';

@@ -143,12 +143,6 @@
 
 /* KAT */
 
-body {
-	min-width: 1358px;
-	max-width: 1358px;	
-	width: 1357px;
-}
-
 .elgg-page-default
 {
 	min-width: 958px;
@@ -182,7 +176,7 @@ body {
 }
 
 .elgg-search-header {
-	top: 180px;
+	top: 160px;
 	height: 23px;
 	position: absolute;
 	left: 850px;
@@ -210,11 +204,7 @@ body {
 h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 	color: #782434;
 }
-.elgg-body {
-	position: absolute;
-        max-width:1000px;
-        position: absolute;
-}
+
 
 .elgg-page-default .elgg-page-footer > .elgg-inner {
 	width: 958px;
@@ -269,7 +259,7 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 }
 
 
-
+/*
 .elgg-menu-qis {
  	border:none;
 	background-color:transparent;
@@ -505,6 +495,8 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
         top: 310px;
         background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/add_quota.png);
 }
+ 
+*/
 
 .elgg-list-river {	
 	visibility: hidden;
@@ -513,3 +505,15 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 .elgg_powered {	
 	visibility: hidden;
 }
+
+
+.elgg-menu-item-report-this {	
+	visibility: hidden;
+}
+
+.elgg-layout-one-column {
+        position: absolute;
+        left: 350px;
+        top: 310px;
+}
+
