@@ -42,7 +42,7 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 									'count' => true,
 								));
 						if ($documents != 1) {
-							$content .= '<h3>'.elgg_echo('need_noc_for ')."$user->name</h3>";
+							$content .= '<h3>'.elgg_echo('need_noc_for')."$user->name</h3>";
 						}
 					}
 				}
@@ -72,7 +72,7 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 							if ($quotas < $quantity_loop) {
 								if ($submitter->qisusertype == 'Client Portal Administrator') {
 									if ($html) {
-										$content .= '<h3>'.elgg_echo('need__additional_quota_request_for ')."$citizenship_loop $occupation_loop $gender_loop</h3>";
+										$content .= '<h3>'.elgg_echo('need__additional_quota_request_for')."$citizenship_loop $occupation_loop $gender_loop</h3>";
 									} else {
 										$content = 'NOT_ENOUGH_QUOTA_OR_QUOTA_REQUEST';
 									}
@@ -83,7 +83,7 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 									//To do review RP
 									if(! $object->passport_photocopy) {
 										if ($html) {
-											$content .= '<h3>'.elgg_echo('check_passport_photocopy_for_request_id ')."$object->guid</h3>";
+											$content .= '<h3>'.elgg_echo('check_passport_photocopy_for_request_id')."$object->guid</h3>";
 										} else {
 											$content = 'PASSPORT_PHOTOCOPY';
 										}
@@ -91,7 +91,7 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 									}
 									if(! $object->registration_card) {
 										if ($html) {
-											$content .= '<h3>'.elgg_echo('check_registration_card_for_request_id ')."$object->guid</h3>";
+											$content .= '<h3>'.elgg_echo('check_registration_card_for_request_id')."$object->guid</h3>";
 										} else {
 											$content = 'REGISTRATION_CARD';
 										}
@@ -99,7 +99,7 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 									}
 									if(! $object->labour_contract) {
 										if ($html) {
-											$content .= '<h3>'.elgg_echo('check_labour_contract_for_request_id ')."$object->guid</h3>";
+											$content .= '<h3>'.elgg_echo('check_labour_contract_for_request_id')."$object->guid</h3>";
 										} else {
 											$content = 'LABOUR_CONTRACT';
 										}
@@ -107,16 +107,16 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 									//To do medical
 									if($object->proceed) {
 										if (! $object->medical_visit) {
-											$content .= '<h3>'.elgg_echo('schedule_medical_for ')."$user->name</h3>";
+											$content .= '<h3>'.elgg_echo('schedule_medical_for')."$user->name</h3>";
 											$medical_visit=true;
 										}
 										if (! $object->blood_test) {
-											$content .= '<h3>'.elgg_echo('schedule_blood_test_for ')."$user->name</h3>";
+											$content .= '<h3>'.elgg_echo('schedule_blood_test_for')."$user->name</h3>";
 											$blood_test=true;
 										}
 										if (! $medical_visit && ! $blood_test) {
 											if (! $object->fingerprints) {
-												$content .= '<h3>'.elgg_echo('schedule_fingerprinting_for ')."$user->name</h3>";
+												$content .= '<h3>'.elgg_echo('schedule_fingerprinting_for')."$user->name</h3>";
 											}
 										}
 									}
@@ -148,13 +148,13 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 								*/
 								if (! $quota_requests ) {
 									if ($html) {
-										$content .= '<h3>'.elgg_echo('need_quota_request_for ')."$citizenship_loop $occupation_loop $gender_loop</h3>";
+										$content .= '<h3>'.elgg_echo('need_quota_request_for')."$citizenship_loop $occupation_loop $gender_loop</h3>";
 									} else {
 										$content = 'NO_QUOTA_OR_QUOTA_REQUEST';
 									}
 								} elseif ($quota_requests < $quantity_loop) {
 									if ($html) {
-										$content .= '<h3>'.elgg_echo('need__additional_quota_request_for ')."$citizenship_loop $occupation_loop $gender_loop</h3>";
+										$content .= '<h3>'.elgg_echo('need__additional_quota_request_for')."$citizenship_loop $occupation_loop $gender_loop</h3>";
 									} else {
 										$content = 'NOT_ENOUGH_QUOTA_OR_QUOTA_REQUEST';
 									}
@@ -172,12 +172,12 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 					$num_lines = count($quantity);
         				for ($i=0;$i<$num_lines;$i++) {
 						if ($object->status[$i] == 'Pending') {
-                					$content .= '<h3>'.elgg_echo('pending_quota_request_for ').$object->guid.'</h3>';
+                					$content .= '<h3>'.elgg_echo('pending_quota_request_for').$object->guid.'</h3>';
 						}
 					}
 				} else {
 					if ($object->status == 'Pending') {
-                				$content .= '<h3>'.elgg_echo('pending_quota_request_for ').$object->guid.'</h3>';
+                				$content .= '<h3>'.elgg_echo('pending_quota_request_for').$object->guid.'</h3>';
 					}
 				}
 			} elseif ($submitter->qisusertype == 'Immigration Agency Account Manager') {

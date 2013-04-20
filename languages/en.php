@@ -57,7 +57,7 @@ $english = array(
 	'thewire:notify:post' => '%s posted on the wire:',
     
         /**
-         * Notifications
+         * Menu items
          */
         'manage_client_organizations' => "Manage Client Organizations",
         'view_reports' => "View Reports",
@@ -72,6 +72,22 @@ $english = array(
         'manage_documents' => "Manage Documents",
         'manage_visits' => "Manage Visits",
         'manage_quotas' => "Manage Quotas",
+    
+        /**
+         * TODO List
+         */
+        'need_visa_info_for' => "Need visa info for ",
+        'need_quota_request_for' => "Need quota request for ",
+        'need_noc_for' => "Need NOC for ",
+        'need__additional_quota_request_for' => "Need additional quota request for ",
+        'check_passport_photocopy_for_request_id' => "Check passport photocopy for request_id ",
+        'check_registration_card_for_request_id' => "Check registration card for request_id ",
+        'check_passport_photocopy_for_request_id' => "Check passport photocopy for request_id ",
+        'check_registration_card_for_request_id' => "Check registration card for request_id ",
+        'check_labour_contract_for_request_id' => "Check labour contract for request_id ",
+        'schedule_medical_for' => "Schedule medical for ",
+        'schedule_blood_test_for' => "Schedule blood test for ",
+        'schedule_fingerprinting_for' => "Schedule fingerprinting for "
 
 );
 
