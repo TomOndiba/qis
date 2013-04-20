@@ -197,8 +197,8 @@ function qis_page_handler($page) {
 		elgg_register_menu_item('qis', array(
         	                'name' => 'manage_quota_request',
         	                'href' => "qis/manage_quota_request/$qis_group_guid",
-        	                'text' => elgg_echo('manage_quota_request'),
-        	                'title' => elgg_echo('manage_quota_request'),
+        	                'text' => elgg_echo('add_quota_request'),
+        	                'title' => elgg_echo('add_quota_request'),
         	                'class' => "elgg-button elgg-button-submit elgg-button-dashboard",
         	                'priority' => 370,
         	        ));

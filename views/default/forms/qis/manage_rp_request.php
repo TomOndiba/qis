@@ -70,7 +70,7 @@ if ($request_guid) {
 		<?php echo elgg_view("input/dropdown", array(
 				'name' => 'relationship_with_sponsor',
 				'value' => $relationship_with_sponsor,
-				'options' => array('BSG','IBM','QSHIELD'),
+				'options' => array('BSG','QSHIELD'),
 				));
 		?>
 	</div>
@@ -202,7 +202,7 @@ if ($request_guid) {
 		<?php echo elgg_view("input/dropdown", array(
 				'name' => 'relationship_with_sponsor',
 				'value' => 'relationship_with_sponsor',
-				'options' => array('BSG','IBM','QSHIELD'),
+				'options' => array('BSG','QSHIELD'),
 				));
 		?>
 	</div>

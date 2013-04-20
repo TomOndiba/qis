@@ -71,6 +71,7 @@ $gender = $request->gender;
 $occupation = $request->occupation;
 $status = $request->status;
 $mol_number = $request->mol_number;
+$vp_number = $request->vp_number;
 $paid = $request->paid;
 $content = '';
 //Get user to present different screens to admin and company portal admin
@@ -79,36 +80,54 @@ $user = elgg_get_logged_in_user_entity();
 ?>
 <div id="multiline-form-quota">
 <?php
+$disable_save_and_delete = false;
 if (is_array($quantity)){
 	for ($i=0;$i<$num_lines;$i++) {
-		$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("quantity").': </label>'.elgg_view('input/text', array('name' => 'quantity[]', 'maxlength' => '2', 'size' => '2', 'value' => $quantity[$i], 'class' => 'quantity')).'</div>';
-		$content .= '<div class="first-line"><label>'.elgg_echo("citizenship").': </label>'.elgg_view("input/dropdown", array( 'name' => 'citizenship[]', 'value' => $citizenship[$i], 'options' => $citizenships,)).'</div>';
-		$content .= '<div class="first-line"><label>'.elgg_echo("gender").': </label>'.elgg_view("input/dropdown", array( 'name' => 'gender[]', 'value' => $gender[$i], 'options' => array('F','M'),)).'</div>';
-		$content .= '<div class="first-line"><label>'.elgg_echo("occupation").': </label>'.elgg_view("input/dropdown", array( 'name' => 'occupation[]', 'value' => $occupation[$i], 'options' => $occupations)).'</div>';
-		if ($user->isAdmin()){
+		if ($status[$i] == 'Pending') {
+			$disabled = '';
+		} else {
+			$disabled = 'disabled';
+			$disable_save_and_delete = true;
+		}
+		
+		$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("quantity").': </label>'.elgg_view('input/text', array('name' => 'quantity[]', 'maxlength' => '2', 'size' => '2', $disabled, 'value' => $quantity[$i], 'class' => 'quantity')).'</div>';
+		$content .= '<div class="first-line"><label>'.elgg_echo("citizenship").': </label>'.elgg_view("input/dropdown", array( 'name' => 'citizenship[]', $disabled,'value' => $citizenship[$i], 'options' => $citizenships,)).'</div>';
+		$content .= '<div class="first-line"><label>'.elgg_echo("gender").': </label>'.elgg_view("input/dropdown", array( 'name' => 'gender[]', $disabled,'value' => $gender[$i], 'options' => array('F','M'),)).'</div>';
+		$content .= '<div class="first-line"><label>'.elgg_echo("occupation").': </label>'.elgg_view("input/dropdown", array( 'name' => 'occupation[]', $disabled,'value' => $occupation[$i], 'options' => $occupations)).'</div>';
+		if ($user->qisusertype == 'Immigration Agency Portal Coordinator') {
 			$content .= '<div class="first-line"><label>'.elgg_echo("status").': </label>'.elgg_view("input/dropdown", array( 'name' => 'status[]', 'value' => $status[$i], 'options' => array('Pending','Approved','Rejected'),)).'</div></div>';
-			$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("MOL Number").': </label>'.elgg_view('input/text', array('name' => 'mol_number[]', 'maxlength' => '2', 'size' => '2', 'value' => $mol_number[$i], 'class' => 'quantity')).'</div>';
+			$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("MOL Number").': </label>'.elgg_view('input/text', array('name' => 'mol_number[]', 'size' => '10', 'value' => $mol_number[$i], 'class' => 'quantity')).'</div>';
+			$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("VP Number").': </label>'.elgg_view('input/text', array('name' => 'vp_number[]', 'size' => '10', 'value' => $vp_number[$i], 'class' => 'quantity')).'</div>';
 			$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("Paiement sent").': </label>'.elgg_view('input/dropdown', array('name' => 'paid[]', 'value' => $paid[$i], 'options' => array('No','Yes'))).'</div>';
 		} else {
 			$content .= '<div class="first-line"><label>'.elgg_echo("status").': </label>'.elgg_echo($status[$i]).elgg_view('input/hidden', array('name' => 'status[]', 'value' => $status[$i])).'</div>';
 			$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'mol_number[]', 'value' => $mol_number[$i])).'</div>';
+			$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'vp_number[]', 'value' => $vp_number[$i])).'</div>';
 			$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'paid[]', 'value' => $paid[$i])).'</div>';
 		}
 	}
 	$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'paid[]', 'value' => $paid)).'</div>';
 	echo $content;
 } else {
-	$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("quantity").': </label>'.elgg_view('input/text', array('name' => 'quantity[]', 'maxlength' => '2', 'size' => '2', 'value' => $quantity, 'class' => 'quantity')).'</div>';
-	$content .= '<div class="first-line"><label>'.elgg_echo("citizenship").': </label>'.elgg_view("input/dropdown", array( 'name' => 'citizenship[]', 'value' => $citizenship, 'options' => $citizenships,)).'</div>';
-	$content .= '<div class="first-line"><label>'.elgg_echo("gender").': </label>'.elgg_view("input/dropdown", array( 'name' => 'gender[]', 'value' => $gender, 'options' => array('F','M'),)).'</div>';
-	$content .= '<div class="first-line"><label>'.elgg_echo("occupation").': </label>'.elgg_view("input/dropdown", array( 'name' => 'occupation[]', 'value' => $occupation, 'options' => $occupations)).'</div>';
-	if ($user->isAdmin()){
+	if ($status == 'Pending') {
+		$disabled = '';
+	} else {
+		$disabled = 'disabled';
+		$disable_save_and_delete = true;
+	}
+	$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("quantity").': </label>'.elgg_view('input/text', array('name' => 'quantity[]', 'maxlength' => '2', 'size' => '2', $disabled,'value' => $quantity, 'class' => 'quantity')).'</div>';
+	$content .= '<div class="first-line"><label>'.elgg_echo("citizenship").': </label>'.elgg_view("input/dropdown", array( 'name' => 'citizenship[]', $disabled,'value' => $citizenship, 'options' => $citizenships,)).'</div>';
+	$content .= '<div class="first-line"><label>'.elgg_echo("gender").': </label>'.elgg_view("input/dropdown", array( 'name' => 'gender[]', $disabled,'value' => $gender, 'options' => array('F','M'),)).'</div>';
+	$content .= '<div class="first-line"><label>'.elgg_echo("occupation").': </label>'.elgg_view("input/dropdown", array( 'name' => 'occupation[]', $disabled,'value' => $occupation, 'options' => $occupations)).'</div>';
+	if ($user->qisusertype == 'Immigration Agency Portal Coordinator') {
 		$content .= '<div class="first-line"><label>'.elgg_echo("status").': </label>'.elgg_view("input/dropdown", array( 'name' => 'status[]', 'value' => $status, 'options' => array('Pending','Approved','Rejected'),)).'</div></div>';
-		$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("MOL Number").': </label>'.elgg_view('input/text', array('name' => 'mol_number[]', 'maxlength' => '2', 'size' => '2', 'value' => $mol_number, 'class' => 'quantity')).'</div>';
+		$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("MOL Number").': </label>'.elgg_view('input/text', array('name' => 'mol_number[]', 'size' => '10', 'value' => $mol_number, 'class' => 'quantity')).'</div>';
+		$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("VP Number").': </label>'.elgg_view('input/text', array('name' => 'vp_number[]', 'size' => '10', 'value' => $vp_number, 'class' => 'quantity')).'</div>';
 		$content .= '<div id="request-quota"><div class="first-line"><label>'.elgg_echo("Paiement sent").': </label>'.elgg_view('input/dropdown', array('name' => 'paid[]', 'value' => $paid, 'options' => array('No','Yes'))).'</div>';
 	} else {
 		$content .= '<div class="first-line"><label>'.elgg_echo("status").': </label>'.elgg_echo($status).elgg_view('input/hidden', array('name' => 'status[]', 'value' => $status)).'</div>';
 		$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'mol_number[]', 'value' => $mol_number)).'</div>';
+		$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'vp_number[]', 'value' => $vp_number)).'</div>';
 		$content .= '<div class="first-line">'.elgg_view('input/hidden', array('name' => 'paid[]', 'value' => $paid)).'</div>';
 	}
 	$content .= '</div>';
@@ -121,8 +140,10 @@ if (is_array($quantity)){
 echo elgg_view('input/hidden', array('name' => 'access_id', 'value' => $access_id));
 echo elgg_view('input/hidden', array('name' => 'container_guid', 'value' => $group_guid));
 echo elgg_view('input/hidden', array('name' => 'request_guid', 'value' => $request_guid));
-echo elgg_view('input/submit', array('name' => 'submit', 'value' => $submit_text, 'id' => 'qis-submit-button',));
-if ($request_guid) {
+if (! $disable_save_and_delete || ($user->qisusertype == 'Immigration Agency Portal Coordinator')) {
+	echo elgg_view('input/submit', array('name' => 'submit', 'value' => $submit_text, 'id' => 'qis-submit-button',));
+}
+if (($request_guid && ! $disable_save_and_delete) || ($user->qisusertype == 'Immigration Agency Portal Coordinator')) {
 	echo elgg_view('input/submit', array('name' => 'submit', 'value' => elgg_echo('delete'), 'id' => 'qis-submit-button',));
 }
 ?>

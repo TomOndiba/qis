@@ -15,10 +15,11 @@ if (elgg_is_logged_in()) {
 	$request_guid = (int) get_input('request_guid');
 	
 	$title = elgg_echo('Manage Client Organization - ').$group->name;
+	$content = '<h2>'.elgg_echo('Manage Client Organization - ').$group->name.'</h2><br>';;
 	
 	$mod_but = elgg_view('input/submit', array('value' => elgg_echo('Manage Service Agreements')));
         $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));
-        $content = $view_form;
+        $content .= $view_form;
         $content .= '<br>';
         $mod_but = elgg_view('input/submit', array('value' => elgg_echo('Manage Quotas')));
         $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));

@@ -17,12 +17,14 @@ if (($operation == elgg_echo('save')) || ($operation == elgg_echo('submit'))) {
 	$input_request->occupation = get_input("occupation");
 	$input_request->status = get_input("status");
 	$input_request->mol_number = get_input("mol_number");
+	$input_request->vp_number = get_input("vp_number");
 	$input_request->paid = get_input("paid");
 	$input_request->container_guid = (int) get_input('container_guid', 0);
 	$input_request->access_id = (int) get_input("access_id");
 	$input_request->guid = (int) get_input('request_guid');
 	$input_request->tags = get_input("tags");
 
+	elgg_log('BRUNO input_request='.var_export($input_request,true),'NOTICE');
 	
 	// check whether this is a new file or an edit
 	$new_request = true;
@@ -65,6 +67,7 @@ if (($operation == elgg_echo('save')) || ($operation == elgg_echo('submit'))) {
 		$request->occupation = $input_request->occupation;
 		$request->status = $input_request->status;
 		$request->mol_number = $input_request->mol_number;
+		$request->vp_number = $input_request->vp_number;
 		$request->paid = $input_request->paid;
 		$request->qistype = 'quota_request';
 		$request->container_guid = $input_request->container_guid;
@@ -102,6 +105,7 @@ __HTML;
 		$request->occupation = $input_request->occupation;
 		$request->status = $input_request->status;
 		$request->mol_number = $input_request->mol_number;
+		$request->vp_number = $input_request->vp_number;
 		$request->paid = $input_request->paid;
 		$request->qistype = 'quota_request';
 		$request->container_guid = $input_request->container_guid;
@@ -129,7 +133,7 @@ __HTML;
 					$quota->gender = $request->gender[$i];
 					$quota->occupation = $request->occupation[$i];
 					$quota->request_guid = $request->guid;
-					$quota->mol_number = $request->mol_number;
+					$quota->vp_number = $request->vp_number;
 					$quota->paid = $request->paid;
                 			$quota->container_guid = $container_guid;
                 			$quota->access_id = $input_request->access_id;
@@ -144,7 +148,7 @@ __HTML;
 				$quota->gender = $request->gender;
 				$quota->occupation = $request->occupation;
 				$quota->request_guid = $request->guid;
-				$quota->mol_number = $request->mol_number;
+				$quota->vp_number = $request->vp_number;
 				$quota->paid = $request->paid;
                 		$quota->container_guid = $container_guid;
                 		$quota->access_id = $input_request->access_id;
