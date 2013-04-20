@@ -3,6 +3,11 @@
     src: local("DINPro"), url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/DINPro-Regular.otf) format("opentype");
 }
 
+@font-face {
+    font-family: "DINProBold";
+    src: local("DINPro-Bold"), url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/DINPro-Bold.otf) format("opentype");
+}
+
 .elgg-body.qis-company-list {
  	height: 40px;
         width: 800px;
@@ -114,7 +119,7 @@
 
 #qis-message {
 	background-color: red;
-	color: black;
+	color: #782434;
 	font-size: 20px;
 	margin: 5px;
 	outline: 1px solid;
@@ -157,17 +162,6 @@
 }
 
 
-
-.elgg-sidebar {
-	position: relative;
-	padding: 20px 10px;
-	float: none;
-	width: 210px;
-	margin: 0 0 0 10px;
-	left: 840px;
-	top: 270px;
-        z-index:1000;
-}
 
 .elgg-layout-one-sidebar {
 	background: none;
@@ -538,7 +532,7 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
 
 .qis-applications-todo > h3 {
 	font-size: 8px;
-	color: black;
+	color: #782434;
 }
 
 
@@ -579,34 +573,7 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
         color: transparent;
 }
 
-.elgg-button, .elgg-button:hover,
-.elgg-menu-item-manage-corporate-information,
-.elgg-menu-item-manage-persons,
-.elgg-menu-item-add-person,
-.elgg-menu-item-manage-immigration-requests,
-.elgg-menu-item-request-resident-permit,
-.elgg-menu-item-manage-quota-requests,
-.elgg-menu-item-manage-quota-request,
-.elgg-menu-item-manage-documents
-{
-        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-        border:none;
-        color: transparent;
-        height: 62px;
-        width: 217px;
-        font-size:10px;
-        text-decoration: none;
-        background-color: transparent;
-        margin: none;
-        -webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-	padding: none;
-        -webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-        background: transparent url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png) repeat:no-repeat;
-}
+
 
 .elgg-menu-item-manage-corporate-information,
 .elgg-menu-item-manage-persons,
@@ -624,17 +591,49 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
 
 
 h3 {
-        color:black;
+        color:#782434;
         font-size:10px;        
 }
 
 
 .elgg-form-login > .elgg-input-text, fieldset, .elgg-input-password{
         width: 215px;
-        font-size:10px;        
+        font-size:12px;        
 }
 
 html *
 {
   font-family: DINPro !important;
+  font-color: #782434 !important;
+}
+
+.elgg-button, .elgg-button:hover,
+.elgg-menu-item-manage-corporate-information,
+.elgg-menu-item-manage-persons,
+.elgg-menu-item-add-person,
+.elgg-menu-item-manage-immigration-requests,
+.elgg-menu-item-request-resident-permit,
+.elgg-menu-item-manage-quota-requests,
+.elgg-menu-item-manage-quota-request,
+.elgg-menu-item-manage-documents
+{
+        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
+        border:none;
+        color: transparent;
+        height: 62px;
+        width: 217px;
+        font-size:12px;
+        font-family: DINProBold !important;
+        text-align: center;
+        text-decoration: none;
+        background-color: transparent;
+        margin: none;
+        -webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	padding: none;
+        -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+        background: transparent url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png) repeat:no-repeat;
 }
