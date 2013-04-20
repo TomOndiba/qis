@@ -276,6 +276,10 @@ function qis_page_handler($page) {
 			include "$base_dir/manage_citizenship.php";
 			break;
 
+		case "manage_client_organization":
+			include "$base_dir/manage_client_organization.php";
+			break;
+
 		case "manage_client_organizations":
 			include "$base_dir/manage_client_organizations.php";
 			break;

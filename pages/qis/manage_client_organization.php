@@ -16,6 +16,29 @@ if (elgg_is_logged_in()) {
 	
 	$title = elgg_echo('Manage Client Organization - ').$group->name;
 	
+	$mod_but = elgg_view('input/submit', array('value' => elgg_echo('Manage Service Agreements')));
+        $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));
+        $content = $view_form;
+        $content .= '<br>';
+        $mod_but = elgg_view('input/submit', array('value' => elgg_echo('Manage Quotas')));
+        $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));
+        $content .= $view_form;
+        $content .= '<br>';
+        $mod_but = elgg_view('input/submit', array('value' => elgg_echo('View Service Consumption')));
+        $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));
+        $content .= $view_form;
+        $content .= '<br>';
+        $mod_but = elgg_view('input/submit', array('value' => elgg_echo('View Organization Documents')));
+        $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));
+        $content .= $view_form;
+        $content .= '<br>';
+        $mod_but = elgg_view('input/submit', array('value' => elgg_echo('View Employees')));
+        $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => ""));
+        $content .= $view_form;
+        $content .= '<br>';
+        $mod_but = elgg_view('input/submit', array('value' => elgg_echo('Return to main Portal')));
+        $view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "/qis/account_manager_dashboard"));
+        $content .= $view_form;
 	
 	$params = array(
 	        'content' => $content,
