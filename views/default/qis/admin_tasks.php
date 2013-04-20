@@ -20,6 +20,7 @@ if (elgg_is_logged_in()) {
 		'metadata_name_value_pairs' => array('name'  => 'qistype', 'value' => 'quota_request'),
 		'full_view' => FALSE,
 	));
+        
 	foreach ($quota_requests as $quota_request) {
 		$result = check_object_state($group_guid,$quota_request,TRUE);
 		if ($result) {
