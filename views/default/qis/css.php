@@ -1,3 +1,7 @@
+.elgg-body.qis-company-list {
+ 	height: 40px;
+        width: 800px;
+}
 .elgg-page-default {
         min-width: 1024px;
 }

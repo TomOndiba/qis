@@ -35,7 +35,7 @@ if (isset($vars['id'])) {
 }
 
 
-$body = "<div class=\"elgg-body\">$body</div>";
+$body = "<div class=\"elgg-body qis-company-list\">$body</div>";
 
 if ($image) {
 	$image = "<div class=\"elgg-image\">$image</div>";
