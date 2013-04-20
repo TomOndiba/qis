@@ -85,6 +85,8 @@ function qis_index_handler() {
                 	forward('qis/admin_dashboard');
 		} elseif ($user->qisusertype == 'Immigration Agency Account Manager') {
                 	forward('qis/account_manager_dashboard');
+		} elseif ($user->qisusertype == 'Client Portal Administrator') {
+                	forward('qis/dashboard');
 		}
         } else {
             $login_box = elgg_view('core/account/login_box');
