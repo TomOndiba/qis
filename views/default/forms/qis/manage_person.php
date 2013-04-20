@@ -2,6 +2,7 @@
 $class='qis-user-att';
 if ($vars['entity']) {
 ?>
+<div id="qis-add-person">
 <div class="<?php echo $class?>">
 	<label><?php echo elgg_echo('user:name:label'); ?></label>
 	<?php echo elgg_view('input/text', array('name' => 'name', 'value' => $vars['entity']->name)); ?>
@@ -19,9 +20,13 @@ if ($vars['entity']) {
         ));
         ?>
 </div>
+</div>
 <?php
 } else {
 ?>
+
+
+<div id="qis-add-person">
 <div class="<?php echo $class?>">
         <label><?php echo elgg_echo('name');?></label><br />
         <?php
@@ -67,6 +72,9 @@ if ($vars['entity']) {
         ));
         ?>
 </div>
+</div>
+    
+    
 <?php
 }
 ?>
@@ -211,7 +219,7 @@ if ($vars['entity']) {
 			if(count($cats) > 1){
 				$list_content .= "<h3 class='settings'>" . $title . "</h3>";
 			}
-			$list_content .= "<fieldset>";
+			$list_content .= "<div id='qis-add-person-data'><fieldset>";
 			
 			// display each field for currect category
 			$hide_non_editables = elgg_get_plugin_setting("hide_non_editables", "profile_manager");
@@ -277,7 +285,7 @@ if ($vars['entity']) {
 			
 			$tab_content .= "</div>\n";
 			
-			$list_content .= "</fieldset>";
+			$list_content .= "</div></fieldset>";
 			$list_content .= "</div>\n";
 		}
 		
@@ -302,16 +310,18 @@ if ($vars['entity']) {
 			<?php echo elgg_view('input/hidden',array('name' => 'simple_access_control', 'value' => $access_id, 'class' => 'simple_access_control', 'js' => 'onchange="set_access_control(this.value)"')); ?>
 			<?php //echo elgg_view('input/access',array('name' => 'simple_access_control', 'value' => $access_id, 'class' => 'simple_access_control', 'js' => 'onchange="set_access_control(this.value)"')); ?>
 		</div>
+                                
 		<?php 
-	} 
+	}
+        
+        echo elgg_view('input/submit', array('id' => 'qis-submit','name' => 'submit','value' => elgg_echo('save')));
 	?>
-	
+                            
 	<div class="elgg-foot">
 	<?php
 		echo elgg_view('input/hidden', array('name' => 'submitter_guid', 'value' => $vars['submitter_guid']));
 		echo elgg_view('input/hidden', array('name' => 'group_guid', 'value' => $vars['group_guid']));
 		echo elgg_view('input/hidden', array('name' => 'guid', 'value' => $vars['entity']->guid));
-		echo elgg_view('input/submit', array('name' => 'submit','value' => elgg_echo('save')));
 		if ($vars['entity']) {
 			echo elgg_view('input/submit', array('name' => 'submit','value' => elgg_echo('delete')));
 		}

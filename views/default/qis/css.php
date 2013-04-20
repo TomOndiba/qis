@@ -642,3 +642,20 @@ h3 {
 	font-size: 12px;
 	color: black;
 }
+
+#qis-add-person {
+	position: absolute;
+	left: 500px;
+}
+
+#elgg-add-buttons {
+	position: absolute;
+	left: 500px;
+        top: 400px;
+}
+
+#qis-submit {
+	position: absolute;
+	left: 500px;
+        top: 300px;
+}
