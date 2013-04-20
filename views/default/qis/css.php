@@ -101,18 +101,7 @@
 	margin-bottom: 10px;
 }
 
-#qis-applications-on-track {
-	font-size: 18px;
-	color: green;
-	float: left;
-	padding: 5px;
-}
-#qis-applications-late {
-	float: right;
-	font-size: 18px;
-	color: red;
-	padding: 5px;
-}
+
 
 #qis-message {
 	background-color: red;
@@ -224,8 +213,8 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 	border:none;
 	background-color:transparent;
         position: absolute;
-	left:200px;
-	top: 400px;
+	left:100px;
+	top: 200px;
         background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/yahoo_btn_normal.png);
 }
 
@@ -236,8 +225,8 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 	border:none;
 	background-color:transparent;
 	position: absolute;
-	left:400px;
-	top: 400px;
+	left:300px;
+	top: 200px;
 	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/fb_btn_normal.png);
 }
 
@@ -248,8 +237,8 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 	border:none;
 	background-color:transparent;
 	position: absolute;
-	left:600px;
-	top: 400px;
+	left:500px;
+	top: 200px;
 	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/google_btn_normal.png);
 }
 
@@ -260,23 +249,9 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 
 
 /*
-.elgg-menu-qis {
- 	border:none;
-	background-color:transparent;
-	position: absolute;
-        top: 300px;
-        left: 300px;
-	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/dashboard_div_left.png);   
-}
 
-.qis-applications-todo {
- 	border:none;
-	background-color:transparent;
-	position: absolute;
-        top: 560px;
-        left: 300px;
-	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/todo_div.png);   
-}
+
+
 
 .qis-applications-in-progress {
  	border:none;
@@ -287,18 +262,9 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/div_apps_manage.png);   
 }
 
-.qis-applications-todo > h3 {
-	font-size: 10px;
-	color: black;
-}
 
-.elgg-menu-qis > li > a {
-        color: black;
-        font-size: 8px;
-        position: absolute;
-        left: 300px;
-        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-}
+
+
 
 #manage_persons {
         top: 306px;
@@ -513,7 +479,99 @@ h1, h2, h3, h4, h5, h6, .elgg-heading-basic {
 
 .elgg-layout-one-column {
         position: absolute;
-        left: 350px;
-        top: 310px;
+        left: 150px;
+        top: 100px;
 }
 
+.elgg-page-body {
+        position: absolute;
+        left: 100px;
+        top: 200px;
+        width: 950px;
+        min-width: 950px;
+        max-width: 950px;
+}
+
+.elgg-sidebar {
+	position: absolute;
+	float: none;
+        padding: none;
+	width: 210px;
+	margin: 0 0 0 10px;
+	left: 740px;
+	top: 170px;
+        z-index:1000;
+}
+
+#qis-applications-todo {
+ 	border:none;
+	background-color:transparent;
+	position: absolute;
+        top: 0px;
+        left: 200px;
+        width: 650px;
+        height: 500px;
+	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/todo_div.png);
+        background-repeat: no-repeat;
+}
+
+#qis-applications-progress {
+ 	border:none;
+	background-color:transparent;
+	position: absolute;
+        top: 300px;
+        left: 200px;
+        width: 650px;
+        height: 300px;
+	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/div_apps_manage.png);
+        background-repeat: no-repeat;
+}
+
+.qis-applications-todo > h3 {
+	font-size: 8px;
+	color: black;
+}
+
+
+
+.elgg-body, .elgg-main {
+ 	height: 600px;
+        width: 800px;
+}
+
+#qis-applications-on-track {
+	font-size: 48px;
+	color: white;
+	position: absolute;
+        top: 130px;
+        left: 170px;
+}
+#qis-applications-late {
+	color: white;
+	font-size: 48px;
+	position: absolute;
+        top: 130px;
+        left: 460px;
+}
+
+.elgg-menu-qis {
+ 	border:none;
+	background-color:transparent;
+	position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+	background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/dashboard_div_left.png);
+}
+
+.elgg-menu-qis > li > a {
+        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
+}
+
+.elgg-menu-qis > li > a:hover {
+        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
+}
+
+.elgg-button-dashboard {
+        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
+}
