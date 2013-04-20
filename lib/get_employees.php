@@ -14,6 +14,7 @@ if((! $submitter->isAdmin()) && (! $group->isMember($submitter) || ! check_entit
 }
 $employees = get_group_members($group_guid,0);
 
+$result[] = array('employee_guid'=>'','employee_name' => '');
 foreach($employees as $employee){
 	if (! $employee->isAdmin()) {
 		$result[] = array('employee_guid'=>$employee->getGUID(),'employee_name' => $employee->name);

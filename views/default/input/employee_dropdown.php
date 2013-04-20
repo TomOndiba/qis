@@ -1,9 +1,10 @@
 <?php 
 $group_guid = elgg_extract("group_guid", $vars);
 $employee_guid = elgg_extract("employee_guid", $vars);
+$id = elgg_extract("id", $vars);
 $site_url = elgg_get_site_url();
 ?>
-<select id="employee-guid" class="elgg-input" name="employee_guid"/>
+<select id=<?php echo $id; ?> class="elgg-input" name="employee_guid"/>
 </select>
 <div class="clearfloat"></div>
 <script type="text/javascript">
@@ -14,7 +15,7 @@ $site_url = elgg_get_site_url();
 		$.getJSON( "<?php echo $site_url; ?>get_employees", {"group_guid": group_guid},function(data){
        			//alert($dropdown.children("option").filter(":selected").val());
        			//alert(data.toSource());
-			var $employeeGUID = $("#employee-guid");
+			var $employeeGUID = $("#<?php echo $id; ?>");
               		$employeeGUID.empty();
               		$.each(data, function() {
 				//alert(passedRequestGuid+' '+this.request_guid);
@@ -33,7 +34,7 @@ $site_url = elgg_get_site_url();
 			$.getJSON( "<?php echo $site_url; ?>get_employees", {"group_guid": group_guid},function(data){
        				//alert($dropdown.children("option").filter(":selected").val());
        				//alert(data.toSource());
-				var $employeeGUID = $("#employee-guid");
+				var $employeeGUID = $("#<?php echo $id; ?>");
               			$employeeGUID.empty();
               			$.each(data, function() {
 					//alert(passedRequestGuid+' '+this.request_guid);

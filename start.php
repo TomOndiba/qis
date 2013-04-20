@@ -68,6 +68,7 @@ function qis_init() {
 	elgg_register_action("qis/manage_citizenship", "$action_base/manage_citizenship.php");
 	elgg_register_action("qis/manage_corporate_info", "$action_base/manage_corporate_info.php");
 	elgg_register_action("qis/manage_document", "$action_base/manage_document.php");
+	elgg_register_action("qis/manage_original_document", "$action_base/manage_original_document.php");
 	elgg_register_action("qis/manage_person", "$action_base/manage_person.php");
 	elgg_register_action("qis/manage_quota", "$action_base/manage_quota.php");
 	elgg_register_action("qis/manage_quota_request", "$action_base/manage_quota_request.php");
@@ -116,6 +117,8 @@ function qis_page_handler($page) {
 	if ((!isset($page[1])) && (! $qis_group_guid) && (($page[0] != 'admin_dashboard') &&
 							  ($page[0] != 'account_manager_dashboard') &&
 							  ($page[0] != 'receptionist_dashboard') &&
+							  ($page[0] != 'manage_original_documents') &&
+							  ($page[0] != 'manage_original_document') &&
 							  ($page[0] != 'manage_document'))) {
 		if ($user) {
 			$groups = get_users_membership ($user->guid);
@@ -327,6 +330,17 @@ function qis_page_handler($page) {
 				set_input('expli', $page[3]);
 			}
 			include "$base_dir/manage_immigration_requests.php";
+			break;
+
+		case "manage_original_document":
+			if (isset($page[1])) {
+				set_input('qis_group_guid', $page[1]);
+				if (isset($page[2])) {
+					set_input('fich_guid', $page[2]);
+					elgg_log("BRUNO start fich_guid=$page[2]",'NOTICE');
+				}
+			}
+			include "$base_dir/manage_original_document.php";
 			break;
 
 		case "manage_original_documents":

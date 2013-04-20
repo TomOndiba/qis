@@ -24,8 +24,12 @@ if (elgg_is_logged_in()) {
 			array('name'  => 'qistype', 'value' => 'document'),
 			array('name'  => 'document_type', 'value' => array('noc')),
 		);
+	} elseif ($submitter->qisusertype == 'Immigration Agency Receptionnist') {
+		$metadata_name_value_pairs = array(
+			array('name'  => 'qistype', 'value' => 'document'),
+			array('name'  => 'document_type', 'value' => array('company_document,employee_document')),
+		);
 	}
-
 	$documents = elgg_get_entities_from_metadata(array(
 		'types' => 'object',
 		'subtypes' => 'file',
