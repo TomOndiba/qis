@@ -55,6 +55,23 @@ $english = array(
 	'thewire:notify:subject' => "New wire post",
 	'thewire:notify:reply' => '%s responded to %s on the wire:',
 	'thewire:notify:post' => '%s posted on the wire:',
+    
+        /**
+         * Notifications
+         */
+        'manage_client_organizations' => "Manage Client Organizations",
+        'view_reports' => "View Reports",
+        'receive_original_documents' => "Receive Original Documents",
+        'manage_persons' => "Manage Persons",
+        'add_person' => "Add Person",
+        'manage_immigration_requests' => "Manage Immigration Requests",
+        'request_resident_permit' => "Request Resident Permit",
+        'manage_corporate_information' => "Manage Corporate Information",
+        'manage_quota_requests' => "Manage Quota Requests",
+        'add_quota_request' => "Add Quota Request",
+        'manage_documents' => "Manage Documents",
+        'manage_visits' => "Manage Visits",
+        'manage_quotas' => "Manage Quotas",
 
 );
 
