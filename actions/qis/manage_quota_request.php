@@ -135,7 +135,7 @@ __HTML;
 					$quota->request_guid = $request->guid;
 					$quota->vp_number = $request->vp_number;
 					$quota->paid = $request->paid;
-                			$quota->container_guid = $container_guid;
+                			$quota->container_guid = $request->container_guid;
                 			$quota->access_id = $input_request->access_id;
                 			$quota->save();
 				}
@@ -150,7 +150,7 @@ __HTML;
 				$quota->request_guid = $request->guid;
 				$quota->vp_number = $request->vp_number;
 				$quota->paid = $request->paid;
-                		$quota->container_guid = $container_guid;
+                		$quota->container_guid = $request->container_guid;
                 		$quota->access_id = $input_request->access_id;
                 		$quota->save();
 			}

@@ -49,13 +49,12 @@ function qis_init() {
 	// Register a URL handler for thewire posts
 	elgg_register_entity_url_handler('object', 'qis', 'qis_url');
 
-	//elgg_register_widget_type('thewire', elgg_echo('thewire'), elgg_echo("thewire:widget:desc"));
-
 	// Register for search
 	elgg_register_entity_type('object', 'qisResidentPermitRequest');
 	elgg_register_entity_type('object', 'qisQuotaRequest');
 	elgg_register_entity_type('object', 'qisResidentPermit');
 	elgg_register_entity_type('object', 'qisQuota');
+	add_subtype('object', 'quota', 'qisQuota');
 
 	// Register granular notification for this type
 	//register_notification_object('object', 'thewire', elgg_echo('thewire:notify:subject'));
