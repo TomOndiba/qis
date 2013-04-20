@@ -11,8 +11,11 @@ $operation = get_input('submit');
 if ($operation == elgg_echo('Schedule')) {
 	// Get variables
 	$input_request->medical_visit = get_input('medical_visit');
+	$input_request->validate_medical_visit = get_input('validate_medical_visit');
 	$input_request->blood_test = get_input("blood_test");
+	$input_request->validate_blood_test = get_input("validate_blood_test");
 	$input_request->fingerprints = get_input("fingerprints");
+	$input_request->validate_fingerprints = get_input("validate_fingerprints");
 
 	$input_request->container_guid = (int) get_input('container_guid', 0);
 	$input_request->access_id = (int) get_input("access_id");
@@ -41,8 +44,12 @@ if ($operation == elgg_echo('Schedule')) {
 	}
 	$guid = $request->getGUID();
 	$request->medical_visit = $input_request->medical_visit;
+	$request->validate_medical_visit = $input_request->validate_medical_visit;
 	$request->blood_test = $input_request->blood_test;
+	$request->validate_blood_test = $input_request->validate_blood_test;
 	$request->fingerprints = $input_request->fingerprints;
+	$request->valiate_fingerprints = $input_request->valiate_fingerprints;
+
 	
 	$request->container_guid = $input_request->container_guid;
 	$request->access_id = $input_request->access_id;

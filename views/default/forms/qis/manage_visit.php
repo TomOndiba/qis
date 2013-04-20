@@ -36,8 +36,16 @@ $user_guid = $request->user_guid;
 $user = get_entity($user_guid);
 $user_name = $user->name;
 $medical_visit = $request->medical_visit;
+$validate_medical_visit = $request->validate_medical_visit;
 $blood_test = $request->blood_test;
+$validate_blood_test = $request->validate_blood_test;
+if ($medical_visit || $blood_test) {
+	$submit_text = elgg_echo('Validate');
+} else {
+	$submit_text = elgg_echo('Schedule');
+}
 $fingerprints = $request->fingerprints;
+$validate_fingerprints = $request->validate_fingerprints;
 ?>
 <div id="request-immigration-service">
 	<?php echo $message; ?>
@@ -47,15 +55,27 @@ $fingerprints = $request->fingerprints;
 	<div>
 	        <label><?php echo elgg_echo("Schedule Medical"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'medical_visit', 'value' => $medical_visit, 'class' => 'visa')); ?>
+	        <label><?php echo elgg_echo("Validate"); ?>: </label>
+	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_medical_visit', 'value' => $validate_medical_visit, 'options' => array('Pass','Fail'), 'class' => 'visa')); ?>
 	</div>
 	<div>
 	        <label><?php echo elgg_echo("Schedule Blood Test"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'blood_test', 'value' => $blood_test, 'class' => 'visa')); ?>
+	        <label><?php echo elgg_echo("Validate"); ?>: </label>
+	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_blood_test', 'value' => $validate_blood_test, 'options' => array('Pass','Fail'), 'class' => 'visa')); ?>
 	</div>
+<?php
+if ($validate_medical_visit == 'Pass' && $validate_blood_test == 'Pass') {
+?>
 	<div>
 	        <label><?php echo elgg_echo("Schedule Fingerprinting"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'fingerprints', 'value' => $fingerprints, 'class' => 'visa')); ?>
+	        <label><?php echo elgg_echo("Validate"); ?>: </label>
+	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_fingerprints', 'value' => $validate_fingerprints, 'options' => array('Pass','Fail'), 'class' => 'visa')); ?>
 	</div>
+<?php
+}
+?>
 	<div class="elgg-foot mts">
 	<?php 
 	if ($document) {
