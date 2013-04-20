@@ -183,7 +183,7 @@
 	text-shadow: none;
 	text-decoration: none;
 	position: relative;
-	left: 670px;
+	left: 745px;
 	top: 100px;
 }
 
@@ -636,4 +636,9 @@ html *
 	-moz-box-shadow: none;
 	box-shadow: none;
         background: transparent url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png) repeat:no-repeat;
+}
+
+h3 {
+	font-size: 12px;
+	color: black;
 }
