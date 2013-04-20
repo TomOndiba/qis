@@ -500,9 +500,9 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
 	position: absolute;
 	float: none;
         padding: none;
-	width: 210px;
+	width: 220px;
 	margin: 0 0 0 10px;
-	left: 740px;
+	left: 730px;
 	top: 250px;
         z-index:1000;
 }
@@ -570,30 +570,61 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
 
 .elgg-menu-qis > li > a {
         background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-        background-color: none;
+        background-color: transparent;
+        color: transparent;
 }
 
-.elgg-menu-qis > li > a:hover {
+.elgg-button, .elgg-button:hover,
+.elgg-menu-item-manage-corporate-information,
+.elgg-menu-item-manage-persons,
+.elgg-menu-item-add-person,
+.elgg-menu-item-manage-immigration-requests,
+.elgg-menu-item-request-resident-permit,
+.elgg-menu-item-manage-quota-requests,
+.elgg-menu-item-manage-quota-request,
+.elgg-menu-item-manage-documents
+{
         background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-        background-color: none;
+        border:none;
+        color: transparent;
+        height: 62px;
+        width: 217px;
+        font-size:10px;
+        text-decoration: none;
+        background-color: transparent;
+        margin: none;
+        -webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	padding: none;
+        -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+        background: transparent url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png) repeat:no-repeat;
 }
 
-.elgg-button-dashboard {
-        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-        background-color: none;
+.elgg-menu-item-manage-corporate-information,
+.elgg-menu-item-manage-persons,
+.elgg-menu-item-add-person,
+.elgg-menu-item-manage-immigration-requests,
+.elgg-menu-item-request-resident-permit,
+.elgg-menu-item-manage-quota-requests,
+.elgg-menu-item-manage-quota-request,
+.elgg-menu-item-manage-documents,
+.elgg-menu-qis > li > a, .elgg-menu-qis > li
+{
+        height: 40px;
+        width: 180px;
 }
 
-.elgg-button {
-        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-        background-color: none;
-}
-
-.elgg-button-submit {
-        background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
-        background-color: none;
-}
 
 h3 {
         color:black;
+        font-size:10px;        
+}
+
+
+.elgg-form-login > .elgg-input-text, fieldset, .elgg-input-password{
+        width: 215px;
         font-size:10px;        
 }
