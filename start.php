@@ -28,6 +28,7 @@ function qis_init() {
 	elgg_register_page_handler('qis', 'qis_page_handler');
 	elgg_register_page_handler('get_citizenship_docs', 'get_citizenship_docs');
 	elgg_register_page_handler('get_requests', 'get_requests');
+	elgg_register_page_handler('get_employees', 'get_employees');
 	//elgg_register_ajax_view('thewire/previous');
 
 	// owner block menu
@@ -87,6 +88,8 @@ function qis_index_handler() {
                 	forward('qis/account_manager_dashboard');
 		} elseif ($user->qisusertype == 'Client Portal Administrator') {
                 	forward('qis/dashboard');
+		} elseif ($user->qisusertype == 'Immigration Agency Receptionist') {
+                	forward('qis/receptionist_dashboard');
 		}
         } else {
             $login_box = elgg_view('core/account/login_box');
@@ -112,6 +115,7 @@ function qis_page_handler($page) {
 	//elgg_log('BRUNO page[1]='.$page[1].'qis_group_guid='.$qis_group_uid.'page[0]='.$page[0],'NOTICE');
 	if ((!isset($page[1])) && (! $qis_group_guid) && (($page[0] != 'admin_dashboard') &&
 							  ($page[0] != 'account_manager_dashboard') &&
+							  ($page[0] != 'receptionist_dashboard') &&
 							  ($page[0] != 'manage_document'))) {
 		if ($user) {
 			$groups = get_users_membership ($user->guid);
@@ -144,6 +148,15 @@ function qis_page_handler($page) {
 				'title' => elgg_echo('view_reports'),
 				'class' => "elgg-button elgg-button-submit elgg-button-dashboard",
 				'priority' => 310,
+			));
+	} elseif ($user->qisusertype == 'Immigration Agency Receptionist') {
+		elgg_register_menu_item('qis', array(
+				'name' => 'receive_original_documents',
+				'href' => "qis/manage_original_documents/$qis_group_guid",
+				'text' => elgg_echo('receive_original_documents'),
+				'title' => elgg_echo('receive_original_documents'),
+				'class' => "elgg-button elgg-button-submit elgg-button-dashboard",
+				'priority' => 300,
 			));
 	} else {
 		elgg_register_menu_item('qis', array(
@@ -316,6 +329,17 @@ function qis_page_handler($page) {
 			include "$base_dir/manage_immigration_requests.php";
 			break;
 
+		case "manage_original_documents":
+			if (isset($page[1])) {
+				set_input('qis_group_guid', $page[1]);
+				if (isset($page[2])) {
+					set_input('fich_guid', $page[2]);
+					elgg_log("BRUNO start fich_guid=$page[2]",'NOTICE');
+				}
+			}
+			include "$base_dir/manage_original_documents.php";
+			break;
+
 		case "manage_person":
 			if (isset($page[2])) {
 				set_input('guid', $page[2]);
@@ -365,6 +389,10 @@ function qis_page_handler($page) {
 				set_input('request_guid', $page[2]);
 			}
 			include "$base_dir/manage_wv_request.php";
+			break;
+
+		case "receptionist_dashboard":
+			include "$base_dir/receptionist_dashboard.php";
 			break;
 
 		case "request_resident_permit":
@@ -473,5 +501,9 @@ function get_citizenship_docs() {
 }
 function get_requests() {
         require_once elgg_get_plugins_path() . 'qis/lib/get_requests.php';
+        return true;
+}
+function get_employees() {
+        require_once elgg_get_plugins_path() . 'qis/lib/get_employees.php';
         return true;
 }
