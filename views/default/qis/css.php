@@ -454,14 +454,14 @@ h3 {
 
 #qis_ris {
         position: absolute;
-	top: 60px;
+	top: 100px;
         left: 260px;
 }
 
 
 #elgg-manage-persons-buttons {
         position: absolute;
-	top: 600px;
+	top: 640px;
         left: 320px;
 }
 
