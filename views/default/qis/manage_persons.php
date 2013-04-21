@@ -9,7 +9,7 @@ foreach ($users as $user) {
 	}
 }
 $content .= '</table></div>';
-$content .= '<div class="elgg-foot">';
+$content .= '<div id="elgg-manage-persons-buttons">';
 $sub_but = elgg_view('input/submit', array('value' => elgg_echo('create_user')));
 $content .= elgg_view('input/form', array('body' => $sub_but, 'action' => "{$CONFIG->url}qis/manage_person/$group_guid",'class' => 'elgg-button elgg-button-submit'));
 $content .= ' ';
