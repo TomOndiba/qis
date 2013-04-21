@@ -273,7 +273,7 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
 .elgg-page-body {
         position: absolute;
         left: 100px;
-        top: 200px;
+        top: 140px;
         width: 950px;
         min-width: 950px;
         max-width: 950px;
@@ -382,7 +382,7 @@ h3 {
 
 .elgg-form-login > .elgg-input-text, fieldset, .elgg-input-password{
         width: 215px;
-        font-size:12px;        
+        font-size:10px;       
 }
 
 html *
@@ -446,6 +446,12 @@ h3 {
         top: 300px;
 }
 
+#qis-delete {
+	position: absolute;
+	left: 500px;
+        top: 200px;
+}
+
 #qis_ris {
         position: absolute;
 	top: 60px;
@@ -483,5 +489,12 @@ body {
 	position:absolute;
 	left:300px;
 	top:0px;
+	padding: 0px;
+}
+
+#qis_ris_citizenship {
+	position:absolute;
+	left:0px;
+	top:580px;
 	padding: 0px;
 }

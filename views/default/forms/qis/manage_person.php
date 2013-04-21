@@ -317,16 +317,16 @@ if ($vars['entity']) {
         echo elgg_view('input/submit', array('id' => 'qis-submit','name' => 'submit','value' => elgg_echo('save')));
 	?>
                             
-	<div class="elgg-foot">
+	
 	<?php
 		echo elgg_view('input/hidden', array('name' => 'submitter_guid', 'value' => $vars['submitter_guid']));
 		echo elgg_view('input/hidden', array('name' => 'group_guid', 'value' => $vars['group_guid']));
 		echo elgg_view('input/hidden', array('name' => 'guid', 'value' => $vars['entity']->guid));
 		if ($vars['entity']) {
-			echo elgg_view('input/submit', array('name' => 'submit','value' => elgg_echo('delete')));
+			echo elgg_view('input/submit', array('id' => 'qis-delete', 'name' => 'submit','value' => elgg_echo('delete')));
 		}
 	?>
-	</div>
+	
 
 <?php 
 	if($simple_access_control == "yes"){ 

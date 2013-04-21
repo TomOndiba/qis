@@ -11,7 +11,7 @@ $user_guid = elgg_extract('user_guid', $vars, FALSE);
 $group_guid = elgg_extract('group_guid', $vars, FALSE);
 $content = '';
 if ($citizenships) {
-	$content = '<div><table id="qis_ris"><tr><th>Citizenship</th><th>Document Number</th><th>Passport Copy</th><th>Date of Issue</th><th>Expiry Date</th><th>Action</th></tr>';
+	$content = '<div><table id="qis_ris_citizenship"><tr><th>Citizenship</th><th>Document Number</th><th>Passport Copy</th><th>Date of Issue</th><th>Expiry Date</th><th>Action</th></tr>';
 	foreach ($citizenships as $citizenship) {
 		$content .= elgg_view('qis/citizenship',array('group_guid'=> $group_guid, 'citizenship' => $citizenship, 'user_guid' => $user_guid));
 	}
