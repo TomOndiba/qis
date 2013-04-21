@@ -8,7 +8,7 @@ elgg_make_sticky_form('manage_visit');
 //Check operation (save or delete)
 $operation = get_input('submit');
 // Modify
-if ($operation == elgg_echo('Schedule')) {
+if ($operation == elgg_echo('Schedule') || $operation == elgg_echo('Validate')) {
 	// Get variables
 	$input_request->medical_visit = get_input('medical_visit');
 	$input_request->validate_medical_visit = get_input('validate_medical_visit');
@@ -48,7 +48,7 @@ if ($operation == elgg_echo('Schedule')) {
 	$request->blood_test = $input_request->blood_test;
 	$request->validate_blood_test = $input_request->validate_blood_test;
 	$request->fingerprints = $input_request->fingerprints;
-	$request->valiate_fingerprints = $input_request->valiate_fingerprints;
+	$request->validate_fingerprints = $input_request->validate_fingerprints;
 
 	
 	$request->container_guid = $input_request->container_guid;
@@ -70,7 +70,7 @@ __HTML;
 	
 	// file saved so clear sticky form
 	elgg_clear_sticky_form('manage_visit');
-	
+	elgg_log('BRUNO request='.var_export($request,true),'NOTICE');
 	if ($guid) {
 		system_message(elgg_echo("request:saved"));
 	} else {

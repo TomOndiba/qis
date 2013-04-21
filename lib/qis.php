@@ -115,8 +115,21 @@ function check_object_state($group = NULL, $object=NULL,$html) {
 											$blood_test=true;
 										}
 										if (! $medical_visit && ! $blood_test) {
-											if (! $object->fingerprints) {
-												$content .= '<h3>'.elgg_echo('schedule_fingerprinting_for')."$user->name</h3>";
+											if (! $object->validate_medical_visit) {
+												$content .= '<h3>'.elgg_echo('Validate medical visit')."$user->name</h3>";
+												$medical_visit=true;
+											}
+											if (! $object->validate_blood_test) {
+												$content .= '<h3>'.elgg_echo('Validate blood test')."$user->name</h3>";
+												$blood_test=true;
+											}
+											if (! $medical_visit && ! $blood_test) {
+												if (! $object->fingerprints) {
+													$content .= '<h3>'.elgg_echo('schedule_fingerprinting_for')."$user->name</h3>";
+												}
+												if (! $object->validate_fingerprints) {
+													$content .= '<h3>'.elgg_echo('Validate fingerprints')."$user->name</h3>";
+												}
 											}
 										}
 									}

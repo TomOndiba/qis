@@ -56,13 +56,13 @@ $validate_fingerprints = $request->validate_fingerprints;
 	        <label><?php echo elgg_echo("Schedule Medical"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'medical_visit', 'value' => $medical_visit, 'class' => 'visa')); ?>
 	        <label><?php echo elgg_echo("Validate"); ?>: </label>
-	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_medical_visit', 'value' => $validate_medical_visit, 'options' => array('Pass','Fail'), 'class' => 'visa')); ?>
+	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_medical_visit', 'value' => $validate_medical_visit, 'options' => array('','Pass','Fail'), 'class' => 'visa')); ?>
 	</div>
 	<div>
 	        <label><?php echo elgg_echo("Schedule Blood Test"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'blood_test', 'value' => $blood_test, 'class' => 'visa')); ?>
 	        <label><?php echo elgg_echo("Validate"); ?>: </label>
-	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_blood_test', 'value' => $validate_blood_test, 'options' => array('Pass','Fail'), 'class' => 'visa')); ?>
+	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_blood_test', 'value' => $validate_blood_test, 'options' => array('','Pass','Fail'), 'class' => 'visa')); ?>
 	</div>
 <?php
 if ($validate_medical_visit == 'Pass' && $validate_blood_test == 'Pass') {
@@ -71,7 +71,7 @@ if ($validate_medical_visit == 'Pass' && $validate_blood_test == 'Pass') {
 	        <label><?php echo elgg_echo("Schedule Fingerprinting"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'fingerprints', 'value' => $fingerprints, 'class' => 'visa')); ?>
 	        <label><?php echo elgg_echo("Validate"); ?>: </label>
-	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_fingerprints', 'value' => $validate_fingerprints, 'options' => array('Pass','Fail'), 'class' => 'visa')); ?>
+	        <?php echo elgg_view('input/dropdown', array('name' => 'validate_fingerprints', 'value' => $validate_fingerprints, 'options' => array('','Pass','Fail'), 'class' => 'visa')); ?>
 	</div>
 <?php
 }

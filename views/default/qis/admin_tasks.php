@@ -41,9 +41,9 @@ if (elgg_is_logged_in()) {
 		$result = check_object_state($group_guid,$resident_permit_request,TRUE);
 		if ($result) {
 			//Ugly but test on returned string to forward to the right page CAREFUL DEPENDS ON STRINGS IN lib/qis.php
-			if (preg_match('/schedule/',$result)) {
+			if (preg_match('/schedule|validate/i',$result)) {
 				$form = 'manage_visit';
-			} elseif (preg_match('/passport|registration|labour/',$result)) {
+			} elseif (preg_match('/passport|registration|labour/i',$result)) {
 				$form = 'manage_rp_request';
 			}
 			$mod_but = elgg_view('input/submit', array('value' => elgg_echo('View')));
