@@ -10,7 +10,7 @@ foreach ($immigration_requests as $immigration_request) {
 	$content .= elgg_view('qis/immigration_request',array('group_guid'=> $group_guid,'immigration_request' => $immigration_request));
 }
 $content .= '</table></div>';
-$content .= '<div class="elgg-foot">';
+$content .= '<div id="elgg-manage-persons-buttons">';
 //$sub_but = elgg_view('input/submit', array('value' => elgg_echo('create_user')));
 //$content .= elgg_view('input/form', array('body' => $sub_but, 'action' => "{$CONFIG->url}qis/manage_person",'class' => 'elgg-button elgg-button-submit'));
 //$content .= ' ';
