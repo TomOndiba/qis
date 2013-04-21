@@ -468,3 +468,8 @@ h3 {
 	top: 460px;
         left: 120px;
 }
+
+body {
+        background-repeat: no-repeat;
+        background-color: #8cc6ec;
+}
