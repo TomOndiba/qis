@@ -447,7 +447,7 @@ h3 {
 #qis_ris {
         position: absolute;
 	top: 100px;
-        left: 300px;
+        left: 260px;
 }
 
 
@@ -457,3 +457,14 @@ h3 {
         left: 320px;
 }
 
+#qis_ris_big {
+        position: absolute;
+	top: 0px;
+        left: 140px;
+}
+
+#elgg-add-buttons-quota {
+        position: absolute;
+	top: 460px;
+        left: 120px;
+}
