@@ -41,7 +41,7 @@ $body = elgg_view('object/elements/summary', $params);
 //echo elgg_view_image_block($icon, $body, $vars);
 $group_line =  elgg_view_image_block($icon, $body, $vars);
 $mod_but = elgg_view('input/submit', array('value' => elgg_echo('View')));
-$view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/manage_client_organization/$vars['qis_group']->guid"));
+$view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/manage_client_organization/".$vars['qis_group']->guid));
 $group_line .= $view_form;
 echo $group_line;
 
