@@ -1,4 +1,11 @@
 <?php
+$user = elgg_get_logged_in_user_entity();
+if ($user->qisusertype == 'Immigration Agency Account Manager') {
+	$target = 'manage_client_organization';
+} else {
+	$target = 'dashboard';
+}
+
 $vars['qis_group']->setURL('/qis/dashboard/'.$vars['qis_group']->guid);
 $icon = elgg_view_entity_icon($vars['qis_group'], 'small');
 
@@ -41,7 +48,7 @@ $body = elgg_view('object/elements/summary', $params);
 //echo elgg_view_image_block($icon, $body, $vars);
 $group_line =  elgg_view_image_block($icon, $body, $vars);
 $mod_but = elgg_view('input/submit', array('value' => elgg_echo('View')));
-$view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/manage_client_organization/".$vars['qis_group']->guid));
+$view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/$target/".$vars['qis_group']->guid));
 $group_line .= $view_form;
 echo $group_line;
 
