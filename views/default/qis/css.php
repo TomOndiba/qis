@@ -369,7 +369,7 @@ h1, h2, h4, h5, h6, .elgg-heading-basic {
 .elgg-menu-item-manage-documents,
 .elgg-menu-qis > li > a, .elgg-menu-qis > li
 {
-        height: 40px;
+        height: 38px;
         width: 180px;
 }
 
@@ -399,7 +399,9 @@ html *
 .elgg-menu-item-request-resident-permit,
 .elgg-menu-item-manage-quota-requests,
 .elgg-menu-item-manage-quota-request,
-.elgg-menu-item-manage-documents
+.elgg-menu-item-manage-documents,
+.elgg-menu-item-manage-quotas,
+.elgg-menu-item-manage-visits
 {
         background-image:url(<?php echo elgg_get_site_url(); ?>mod/qis/graphics/menu_btn.png);
         border:none;
@@ -472,4 +474,14 @@ h3 {
 body {
         background-repeat: no-repeat;
         background-color: #8cc6ec;
+}
+
+#qis-task {
+	padding: 0px;
+}
+#qis-task-button {
+	position:absolute;
+	left:300px;
+	top:0px;
+	padding: 0px;
 }

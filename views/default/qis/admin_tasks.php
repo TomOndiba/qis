@@ -11,8 +11,10 @@ if (elgg_is_logged_in()) {
 
 	
         $user = elgg_get_logged_in_user_entity();
-        $content = '<div class="qis-applications-in-progress">';
-        $content .= '<h2>'.elgg_echo('to_do').'</h2>'; 
+        $content = '<div class="qis-applications-in-progress" id="qis-applications-todo">';
+        $content .= '<br /><br />';
+        $content .= '<br /><br />';
+        //$content .= '<h2>'.elgg_echo('to_do').'</h2>'; 
 	$quota_requests = elgg_get_entities_from_metadata(array(
 		'types' => 'object',
 		'subtypes' => 'immigration_request',
@@ -26,7 +28,7 @@ if (elgg_is_logged_in()) {
 		if ($result) {
 			$mod_but = elgg_view('input/submit', array('value' => elgg_echo('View')));
 			$view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/manage_quota_request/$group_guid/$quota_request->guid"));
-			$result = "<div id='qis-task'>".date('M j, Y',$quota_request->time_updated)." : $result</div><div id='qis-task-button'>$view_form</div><hr>";
+			$result = "<div id='qis-task'>".date('M j, Y',$quota_request->time_updated)." : $result<div id='qis-task-button'>$view_form</div></div>";
 			$content .= $result;
 		}
 	}
@@ -48,7 +50,7 @@ if (elgg_is_logged_in()) {
 			}
 			$mod_but = elgg_view('input/submit', array('value' => elgg_echo('View')));
 			$view_form = elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/$form/$group_guid/$resident_permit_request->guid"));
-			$result = "<div id='qis-task'>".date('M j, Y',$resident_permit_request->time_updated)." : $result</div><div id='qis-task-button'>$view_form</div><hr>";
+			$result = "<div id='qis-task'>".date('M j, Y',$resident_permit_request->time_updated)." : $result<div id='qis-task-button'>$view_form</div></div>";
 			$content .= $result;
 		}
 	}

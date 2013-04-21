@@ -11,8 +11,10 @@ if (elgg_is_logged_in()) {
 	}
 	
         $user = elgg_get_logged_in_user_entity();
-        $content = '<div class="qis-applications-in-progress">';
-        $content .= '<h2>'.elgg_echo('to_do').'</h2>'; 
+        $content = '<div class="qis-applications-in-progress" id="qis-applications-todo"><br /><br />';
+        //$content .= '<h2>'.elgg_echo('to_do').'</h2>';
+        $content .= '<br /><br />';
+        $content .= '<br /><br />';
 	$quota_requests = elgg_get_entities_from_metadata(array(
 		'types' => 'object',
 		'subtypes' => 'immigration_request',
