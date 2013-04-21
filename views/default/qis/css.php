@@ -92,7 +92,7 @@
 
 #qis_ris tr,td,th {
 	border: 2px solid;
-	padding: 5px;
+	padding: 0px;
 	text-align: center;
 }
 
@@ -448,7 +448,7 @@ h3 {
 
 #qis_ris {
         position: absolute;
-	top: 100px;
+	top: 60px;
         left: 260px;
 }
 
