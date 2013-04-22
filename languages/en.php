@@ -6,6 +6,16 @@
 $english = array(
 
 	/**
+	Profile manager date format overload
+	*/
+	'profile_manager:datepicker:trigger' => 'Select a date',
+	'profile_manager:datepicker:output:dateformat' => '%Y/%m/%d', // For available notations see http://nl.php.net/manual/en/function.strftime.php
+	'profile_manager:datepicker:input:localisation' => '', // change it to the available localized js files in custom_profile_fields/vendors/jquery.datepick.package-3.5.2 (e.g. jquery.datepick-nl.js), leave blank for default
+	'profile_manager:datepicker:input:dateformat' => '%Y/%m/%d', // Notation is based on strftime, but must result in output like http://keith-wood.name/datepick.html#format
+	'profile_manager:datepicker:input:dateformat_js' => 'yyyy/mm/dd', // Notation is based on strftime, but must result in output like http://keith-wood.name/datepick.html#format
+	'profile_manager:input:multi_select:empty_text' => 'Please select ...',
+
+	/**
 	 * Menu items and titles
 	 */
 	'thewire' => "The Wire",

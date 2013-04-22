@@ -62,11 +62,11 @@ if ($guid) {
 </div>
 <div>
 	<label><?php echo elgg_echo('date_of_issue'); ?></label><br />
-	<?php echo elgg_view('input/text', array('name' => 'date_of_issue', 'value' => $file->date_of_issue)); ?>
+	<?php echo elgg_view('input/pm_datepicker', array('name' => 'date_of_issue', 'value' => $file->date_of_issue)); ?>
 </div>
 <div>
 	<label><?php echo elgg_echo('expiry_date'); ?></label><br />
-	<?php echo elgg_view('input/text', array('name' => 'expiry_date', 'value' => $file->expiry_date)); ?>
+	<?php echo elgg_view('input/pm_datepicker', array('name' => 'expiry_date', 'value' => $file->expiry_date)); ?>
 </div>
 <div>
 	<label><?php echo elgg_echo('access'); ?></label><br />

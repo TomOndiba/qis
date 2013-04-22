@@ -53,7 +53,7 @@ if ($fich_guid) {
 </div>
 <div id='document-expiry'>
 	<label><?php echo elgg_echo('expiry_date'); ?></label>
-	<?php echo elgg_view('input/text', array('name' => 'expiry_date', 'value' => $file->expiry_date, 'class' => 'expiry')); ?>
+	<?php echo elgg_view('input/pm_datepicker', array('name' => 'expiry_date', 'value' => $file->expiry_date, 'class' => 'expiry')); ?>
 </div>
 <div class="elgg-foot">
 <?php

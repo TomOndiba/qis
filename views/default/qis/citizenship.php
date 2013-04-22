@@ -16,8 +16,12 @@ if (!$file) {
 
 $country = $file->country;
 $number = $file->number;
-$date_of_issue = $file->date_of_issue;
-$expiry_date= $file->expiry_date;
+$dateformat = elgg_echo("profile_manager:datepicker:input:dateformat");
+$date_of_issue = preg_replace('/ \(.+$/','',$file->date_of_issue);
+$nice_date_of_issue =  strftime($dateformat, strtotime($date_of_issue));
+$expiry_date = preg_replace('/ \(.+$/','',$file->expiry_date);
+$nice_expiry_date =  strftime($dateformat, strtotime($expiry_date));
+
 $container = $file->getContainerEntity();
 $mime = $file->mimetype;
 $base_type = substr($mime, 0, strpos($mime,'/'));
@@ -25,4 +29,4 @@ $base_type = substr($mime, 0, strpos($mime,'/'));
 $mod_but .= elgg_view('input/submit', array('value' => elgg_echo('modify_delete')));
 $mod_form .= elgg_view('input/form', array('body' => $mod_but, 'action' => "{$CONFIG->url}qis/manage_citizenship/$group_guid/$user_guid/$file->guid"));
 
-echo "<tr><td>$country</td><td>$number</td><td>".elgg_view_entity_icon($file, 'small')."</td><td>$date_of_issue</td><td>$expiry_date</td><td>$mod_form</td></tr>";
+echo "<tr><td>$country</td><td>$number</td><td>".elgg_view_entity_icon($file, 'small')."</td><td>$nice_date_of_issue</td><td>$nice_expiry_date</td><td>$mod_form</td></tr>";

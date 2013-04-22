@@ -104,7 +104,7 @@ if ($request_guid) {
 	        <label><?php echo elgg_echo("visa_number"); ?>: </label>
 	        <?php echo elgg_view('input/text', array('name' => 'visa_number', 'value' => $visa_number,'class' => 'visa')); ?>
 	        <label><?php echo elgg_echo("visa_expiry_date"); ?>: </label>
-	        <?php echo elgg_view('input/text', array('name' => 'visa_expiry_date', 'value' => $visa_expiry_date, 'class' => 'visa')); ?>
+	        <?php echo elgg_view('input/pm_datepicker', array('name' => 'visa_expiry_date', 'value' => $visa_expiry_date, 'class' => 'visa')); ?>
 	</div>
 	<div class='qis-current-visa-type'>
 	        <label><?php echo elgg_echo("sponsored"); ?>: </label>
